@@ -1,0 +1,32 @@
+public class YourClassNameHere {
+    public SingleListNode headList(SingleListNode llist, int val){
+      
+      if(llist == null)
+        return new SingleListNode(val);
+      else{//add to list
+        llist.next=headList(llist.next, val);
+      }
+      return llist;
+    }
+    public static void main(String[] args) {
+      SingleListNode l=new SingleListNode(0);
+      System.out.println(l.data);
+      
+      YourClassNameHere c= new YourClassNameHere();
+      l.next=c.headList(null, 1);//would be new head.
+      SingleListNode p=l.next;
+      p.next=c.headList(l.next, 2);
+    }
+}
+
+class SingleListNode{
+    int data;
+    SingleListNode next;
+    
+    public SingleListNode(int dataIn){
+      this.data=dataIn;
+      this.next=null;
+      
+    }
+  
+}
